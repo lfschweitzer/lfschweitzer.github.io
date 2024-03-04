@@ -7,6 +7,20 @@
     "text": "About this blog"
   },
   {
+    "objectID": "posts/post2/hw2.html",
+    "href": "posts/post2/hw2.html",
+    "title": " ‘Optimal’ Decision-Making ",
+    "section": "",
+    "text": "In this blog post I trained a Logistic Regression function to predict the outcome of a loan. Through iterative comparison, I found that age, loan percent income, and person home ownership were the optimal features to predict loan status. Using these features to train my model, I then measured the optimal threshold by finding the highest possible gain for the bank. For these calculations I used the cost functions given by Professor Phil that depend on interest rate and loan amount. I then evaluated my model to see how the predictions changed based on different characteristics and calculated fairness based on my chosen definition.\nI found that the bank stood to gain $7931919.35735091 in total, or $1384.0375776218652 per loan. This was based on an optimal threshold of 2.857653939857805. My trained model predicted that older people and people with lower incomes were less likely to be given a loan. It also predicted default rate as highest for debt consolidation, then medical expenses, personal, education, and loan intent. Based on my choice of Error Rate Parity as a definition of model fairness, I determined that my model made fair decisions based on medical expense loan intent."
+  },
+  {
+    "objectID": "posts/post2/hw2.html#introduction",
+    "href": "posts/post2/hw2.html#introduction",
+    "title": " ‘Optimal’ Decision-Making ",
+    "section": "",
+    "text": "In this blog post I trained a Logistic Regression function to predict the outcome of a loan. Through iterative comparison, I found that age, loan percent income, and person home ownership were the optimal features to predict loan status. Using these features to train my model, I then measured the optimal threshold by finding the highest possible gain for the bank. For these calculations I used the cost functions given by Professor Phil that depend on interest rate and loan amount. I then evaluated my model to see how the predictions changed based on different characteristics and calculated fairness based on my chosen definition.\nI found that the bank stood to gain $7931919.35735091 in total, or $1384.0375776218652 per loan. This was based on an optimal threshold of 2.857653939857805. My trained model predicted that older people and people with lower incomes were less likely to be given a loan. It also predicted default rate as highest for debt consolidation, then medical expenses, personal, education, and loan intent. Based on my choice of Error Rate Parity as a definition of model fairness, I determined that my model made fair decisions based on medical expense loan intent."
+  },
+  {
     "objectID": "posts/post1/homework1.html",
     "href": "posts/post1/homework1.html",
     "title": " Palmer Penguins ",
@@ -56,24 +70,10 @@
     "text": "Finally, to visualize the successful identification of my model with my three chosen characteristics I used a confusion matrix on the testing data.\n\nfrom sklearn.metrics import confusion_matrix\n\ny_test_pred = LR.predict(X_test_selected)\nC = confusion_matrix(y_test, y_test_pred)\n\nfor i in range(3):\n    for j in range(3):\n        print(f\"There were {C[i,j]} {le.classes_[i]} penguin(s) who were classified as {le.classes_[j]}.\")\n\nThere were 31 Adelie penguin(s) who were classified as Adelie.\nThere were 0 Adelie penguin(s) who were classified as Chinstrap.\nThere were 0 Adelie penguin(s) who were classified as Gentoo.\nThere were 0 Chinstrap penguin(s) who were classified as Adelie.\nThere were 11 Chinstrap penguin(s) who were classified as Chinstrap.\nThere were 0 Chinstrap penguin(s) who were classified as Gentoo.\nThere were 0 Gentoo penguin(s) who were classified as Adelie.\nThere were 0 Gentoo penguin(s) who were classified as Chinstrap.\nThere were 26 Gentoo penguin(s) who were classified as Gentoo."
   },
   {
-    "objectID": "posts/post1/hw2.html",
-    "href": "posts/post1/hw2.html",
-    "title": " ‘Optimal’ Decision-Making ",
-    "section": "",
-    "text": "In this blog post I trained a Logistic Regression function to predict the outcome of a loan. Through iterative comparison, I found that age, loan percent income, and person home ownership were the optimal features to predict loan status. Using these features to train my model, I then measured the optimal threshold by finding the highest possible gain for the bank. For these calculations I used the cost functions given by Professor Phil that depend on interest rate and loan amount. I then evaluated my model to see how the predictions changed based on different characteristics and calculated fairness based on my chosen definition.\nI found that the bank stood to gain $7931919.35735091 in total, or $1384.0375776218652 per loan. This was based on an optimal threshold of 2.857653939857805. My trained model predicted that older people and people with lower incomes were less likely to be given a loan. It also predicted default rate as highest for debt consolidation, then medical expenses, personal, education, and loan intent. Based on my choice of Error Rate Parity as a definition of model fairness, I determined that my model made fair decisions based on medical expense loan intent."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "My Awesome CSCI 0451 Blog",
     "section": "",
-    "text": "‘Optimal’ Decision-Making \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Palmer Penguins \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/post1/hw2.html#introduction",
-    "href": "posts/post1/hw2.html#introduction",
-    "title": " ‘Optimal’ Decision-Making ",
-    "section": "",
-    "text": "In this blog post I trained a Logistic Regression function to predict the outcome of a loan. Through iterative comparison, I found that age, loan percent income, and person home ownership were the optimal features to predict loan status. Using these features to train my model, I then measured the optimal threshold by finding the highest possible gain for the bank. For these calculations I used the cost functions given by Professor Phil that depend on interest rate and loan amount. I then evaluated my model to see how the predictions changed based on different characteristics and calculated fairness based on my chosen definition.\nI found that the bank stood to gain $7931919.35735091 in total, or $1384.0375776218652 per loan. This was based on an optimal threshold of 2.857653939857805. My trained model predicted that older people and people with lower incomes were less likely to be given a loan. It also predicted default rate as highest for debt consolidation, then medical expenses, personal, education, and loan intent. Based on my choice of Error Rate Parity as a definition of model fairness, I determined that my model made fair decisions based on medical expense loan intent."
+    "text": "Palmer Penguins \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ‘Optimal’ Decision-Making \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
