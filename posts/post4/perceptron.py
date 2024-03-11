@@ -23,10 +23,8 @@ class LinearModel:
         """
         if self.w is None: 
             self.w = torch.rand((X.size()[1]))
-        
-        s = torch.matmul(X, self.w)
-        
-        return s
+            
+        return X@self.w
 
     def predict(self, X):
         """
@@ -42,9 +40,7 @@ class LinearModel:
             y_hat, torch.Tensor: vector predictions in {0.0, 1.0}. y_hat.size() = (n,)
         """
         s = self.score(X)
-        
-        threshold = 0.5
-        y_hat = torch.where(s >= threshold, torch.tensor(1.0), torch.tensor(0.0))
+        y_hat = 1.0*(s >= 0)
         
         return y_hat
 
@@ -62,28 +58,25 @@ class Perceptron(LinearModel):
 
             y, torch.Tensor: the target vector.  y.size() = (n,). In the perceptron algorithm, the possible labels for y are assumed to be {-1, 1}
         """
-
+        
         y_hat = self.predict(X)
-        
-        misc = torch.where(y_hat*y > 0, False, True)
-        
-        misc_rate = (1.0*misc).mean()
-        
-        return misc_rate
+        #if y_hat=0=>-1, if y_hat=1=>1
+        y_hat = 2*y_hat - 1
+        misc = 1.0*(y_hat*y <= 0)
+                
+        return misc.mean()
 
     def grad(self, X, y):
         # should correctly return the “update” part of the perceptron update
         
-        # compute score s_i = <x, y>
         s = self.score(X)
-        
-        # Check for misclassification
-        misclassified = torch.where(s * y <= 0, torch.tensor(1.0), torch.tensor(0.0))
 
-        # Compute the update part only for misclassified data points
-        update = misclassified.view(-1, 1) * y.view(-1, 1) * X
-
-        return update
+       # if misclassified, calculate update
+        if s*y <= 0:            
+            update_val = X*y
+            return update_val[0,:]
+        else:
+            return torch.zeros_like(self.w)
 
 class PerceptronOptimizer:
 
@@ -96,8 +89,7 @@ class PerceptronOptimizer:
         Compute one step of the perceptron update using the feature matrix X 
         and target vector y. 
         """
-        loss = self.model.loss(X, y)
+        # loss = self.model.loss(X, y)
         
         grad = self.model.grad(X, y)
-        
         self.model.w += grad
