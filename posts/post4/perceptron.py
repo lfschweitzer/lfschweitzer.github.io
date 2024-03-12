@@ -73,7 +73,7 @@ class Perceptron(LinearModel):
 
        # if misclassified, calculate update
         if s*y <= 0:            
-            update_val = X*y
+            update_val= X*y
             return update_val[0,:]
         else:
             return torch.zeros_like(self.w)
