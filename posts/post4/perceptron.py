@@ -62,6 +62,11 @@ class Perceptron(LinearModel):
         y_hat = self.predict(X)
         #if y_hat=0=>-1, if y_hat=1=>1
         y_hat = 2*y_hat - 1
+        
+        print(f"{y_hat.shape=}")
+        print(f"{X.shape=}")
+        print(f"{y.shape=}")
+        
         misc = 1.0*(y_hat*y <= 0)
                 
         return misc.mean()
@@ -70,13 +75,19 @@ class Perceptron(LinearModel):
         # should correctly return the “update” part of the perceptron update
         
         s = self.score(X)
+        
+        # choose random learning rate
+        alpha = 0.9
 
-       # if misclassified, calculate update
-        if s*y <= 0:            
-            update_val= X*y
-            return update_val[0,:]
-        else:
-            return torch.zeros_like(self.w)
+        # if misclassified, calculate update
+        update_val = torch.where(s * y <= 0, X * y, torch.zeros_like(self.w))
+        return alpha * torch.mean(update_val)
+
+        # if s*y <= 0:            
+        #     update_val= X*y
+        #     return update_val[0,:]
+        # else:
+        #     return torch.zeros_like(self.w)
 
 class PerceptronOptimizer:
 
