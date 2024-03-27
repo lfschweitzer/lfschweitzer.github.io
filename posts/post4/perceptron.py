@@ -60,14 +60,13 @@ class Perceptron(LinearModel):
         """
         
         y_hat = self.predict(X)
-        #if y_hat=0=>-1, if y_hat=1=>1
+        
+        # convert y_hat from {0, 1} to {-1, 1}
         y_hat = 2*y_hat - 1
         
-        # print(f"{y_hat.shape=}")
-        # print(f"{X.shape=}")
-        # print(f"{y.shape=}")
-        
         misc = 1.0*(y_hat*y <= 0)
+        
+        print(f"{misc.mean()=}")
                 
         return misc.mean()
 
@@ -77,14 +76,22 @@ class Perceptron(LinearModel):
         s = self.score(X)
         
         # choose random learning rate
-        learning_rate = 0.9
+        learning_rate = 1
 
         # if misclassified, calculate update
-        val1 = s*y <= 0
-        val2 = X*y[:,None]
+        misclass = s*y <= 0
+        update_val_row = X*y[:,None]
         
-        update_val = val2*val1[:,None]
+        update_val = update_val_row * misclass[:,None]
         return learning_rate * torch.mean(update_val)
+        # s = self.score(X)
+
+       # if misclassified, calculate update
+        # if s*y <= 0:            
+        #     update_val = X*y
+        #     return update_val[0,:]
+        # else:
+        #     return torch.zeros_like(self.w)
     
        # want each row of X multipled by y, then take mean
 
