@@ -44,7 +44,7 @@ class LinearModel:
         
         return y_hat
 
-class Perceptron(LinearModel):
+class Perceptron_mini(LinearModel):
 
     def loss(self, X, y):
         """
@@ -76,26 +76,20 @@ class Perceptron(LinearModel):
         s = self.score(X)
         
         # choose random learning rate
-        learning_rate = 1
+        learning_rate = 0.1
 
         # if misclassified, calculate update
         misclass = s*y <= 0
         update_val_row = X*y[:,None]
         
         update_val = update_val_row * misclass[:,None]
-        return learning_rate * torch.mean(update_val)
-        # s = self.score(X)
-
-       # if misclassified, calculate update
-        # if s*y <= 0:            
-        #     update_val = X*y
-        #     return update_val[0,:]
-        # else:
-        #     return torch.zeros_like(self.w)
-    
-       # want each row of X multipled by y, then take mean
-
-class PerceptronOptimizer:
+        
+        r = learning_rate * torch.mean(update_val, 0)
+        # print(f"{r=}")
+        
+        return r
+       
+class PerceptronOptimizer_mini:
 
     def __init__(self, model):
         
