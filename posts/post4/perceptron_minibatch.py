@@ -65,9 +65,7 @@ class Perceptron_mini(LinearModel):
         y_hat = 2*y_hat - 1
         
         misc = 1.0*(y_hat*y <= 0)
-        
-        # print(f"{misc.mean()=}")
-                
+                        
         return misc.mean()
 
     def grad(self, X, y):
@@ -76,7 +74,7 @@ class Perceptron_mini(LinearModel):
         s = self.score(X)
         
         # choose random learning rate
-        learning_rate = 0.1
+        learning_rate = 1e-10
 
         # if misclassified, calculate update
         misclass = s*y <= 0
@@ -85,7 +83,6 @@ class Perceptron_mini(LinearModel):
         update_val = update_val_row * misclass[:,None]
         
         r = learning_rate * torch.mean(update_val, 0)
-        # print(f"{r=}")
         
         return r
        
