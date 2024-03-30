@@ -74,7 +74,7 @@ class Perceptron_mini(LinearModel):
         s = self.score(X)
         
         # choose random learning rate
-        learning_rate = 1e-10
+        learning_rate = 0.01
 
         # if misclassified, calculate update
         misclass = s*y <= 0
