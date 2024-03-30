@@ -7,6 +7,7 @@ class LinearModel:
         self.w = None 
         self.prev_w = None
 
+
     def score(self, X):
         """
         Compute the scores for each data point in the feature matrix X. 
@@ -48,58 +49,63 @@ class LinearModel:
 
 class LogisticRegression(LinearModel):
     
-    def sigmoid(s):
-        return 1/(1+numpy.exp(-s))
+    def sigmoid(self, s):
+        return 1/(1 + torch.exp(-s))
     
     
     def loss(self, X, y):
         """
         Should compute the empirical risk using the logistic loss function
         """
-        s = self.score(X)[:, None]
+        s = self.score(X)
+        
+        # print(f"{s=}")
+        
         sig_s = self.sigmoid(s)
+        y = y[:, None]
         
-        little_loss = -y[:, None]*numpy.log(sig_s) - (1-y)[:, None]* numpy.log(1-sig_s)
+        little_loss = -y * torch.log(sig_s) - (1-y) * torch.log(1-sig_s)
         
-        return torch.mean(little_loss)
+        # print(f"{little_loss=}")
+        loss = torch.mean(little_loss)
+        
+        return loss
 
     def grad(self, X, y):
         """
         Should compute the gradient of the empirical risk
         """
-        s = self.score(X)[:, None]
+        s = self.score(X)
         sig_s = self.sigmoid(s)
         
-        little_loss = (sig_s - y[:, None])*X
+        little_grad = (sig_s - y)[:, None] * X
         
-        return torch.mean(little_loss)
+        grad = torch.mean(little_grad, dim=0)
+        
+        return grad 
 
 class GradientDescentOptimizer:
 
     def __init__(self, model):
-        self.model = model 
+        self.model = model
     
-    def step(self, X, y):
+    def step(self, X, y, alpha, beta):
         """
         Compute one step of the update using the feature matrix X 
         and target vector y. 
         """
         loss = self.model.loss(X, y)
-        
-        alpha = 0.5
-        beta = 0.9
-        
         grad = self.model.grad(X, y)
         
+        cur_w = self.model.w
+        
         # if it is the first update
-        if self.prev_w == None:
-            self.w += -alpha*grad
-
+        if self.model.prev_w == None:
+            self.model.w -= alpha*grad
         else:
-            cur_w = self.w
-            self.w += -alpha*grad + beta*(cur_w - self.prev_w)
+            self.model.w += -1*alpha*grad + beta*(cur_w - self.model.prev_w)
         
         # save value of previous w
-        self.prev_w = cur_w
+        self.model.prev_w = cur_w
         
         return loss
