@@ -89,11 +89,8 @@ class PerceptronOptimizer:
         Compute one step of the perceptron update using the feature matrix X 
         and target vector y. 
         """
-        # loss = self.model.loss(X, y)
         loss = self.model.loss(X, y)
-        
         grad = self.model.grad(X, y)
-        self.model.w += grad
         self.model.w += grad
         
         return loss
