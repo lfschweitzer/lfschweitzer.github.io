@@ -51,14 +51,25 @@ class LogisticRegression(LinearModel):
     def loss(self, X, y):
         """
         Should compute the empirical risk using the logistic loss function
+        
+        ARGUMENTS: 
+            X, torch.Tensor: the feature matrix. X.size() == (n, p), 
+            where n is the number of data points and p is the 
+            number of features. This implementation always assumes 
+            that the final column of X is a constant column of 1s. 
+            y, torch.Tensor: the target vector.  y.size() = (n,). The possible labels for y are {0, 1}
+
+        RETURNS: 
+            loss: float: the loss value of the model
         """
         s = self.score(X)
         sig_s = torch.sigmoid(s)
         y = y[:, None]
         
+        # compute small l loss
         little_loss = -y * torch.log(sig_s) - (1-y) * torch.log(1-sig_s)
         
-        # print(f"{little_loss=}")
+        # big L loss is mean of little_loss's of all inputs
         loss = torch.mean(little_loss)
         
         return loss
@@ -66,12 +77,24 @@ class LogisticRegression(LinearModel):
     def grad(self, X, y):
         """
         Should compute the gradient of the empirical risk
+        
+        ARGUMENTS: 
+            X, torch.Tensor: the feature matrix. X.size() == (n, p), 
+            where n is the number of data points and p is the 
+            number of features. This implementation always assumes 
+            that the final column of X is a constant column of 1s. 
+            y, torch.Tensor: the target vector.  y.size() = (n,). The possible labels for y are {0, 1}
+
+        RETURNS:
+            grad: float: the gradient of the empirical risk of the model
         """
         s = self.score(X)
         sig_s = torch.sigmoid(s)
         
+        # little gradient formula
         little_grad = (sig_s - y)[:, None] * X
         
+        # big gradient is mean of all little gradients of inputs
         grad = torch.mean(little_grad, dim=0)
         
         return grad 
@@ -85,6 +108,17 @@ class GradientDescentOptimizer:
         """
         Compute one step of the update using the feature matrix X 
         and target vector y. 
+        
+        ARGUMENTS: 
+            X, torch.Tensor: the feature matrix. X.size() == (n, p), 
+            where n is the number of data points and p is the 
+            number of features. This implementation always assumes 
+            that the final column of X is a constant column of 1s. 
+            y, torch.Tensor: the target vector.  y.size() = (n,). The possible labels for y are {0, 1}
+            alpha: float: learning rate of model
+            beta: float: momentum of model
+        RETURNS:
+            loss: float: the empirical risk
         """
         loss = self.model.loss(X, y)
         grad = self.model.grad(X, y)
@@ -96,9 +130,6 @@ class GradientDescentOptimizer:
             self.model.w -= alpha*grad
         else:
             self.model.w += -1*alpha*grad + beta*(cur_w - self.model.prev_w)
-            # print(f"{-1*alpha*grad=}")
-            # print(f"{alpha*grad=}")
-
         
         # save value of previous w
         self.model.prev_w = cur_w
