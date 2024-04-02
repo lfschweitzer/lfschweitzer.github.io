@@ -1,5 +1,4 @@
 import torch
-import numpy
 
 class LinearModel:
 
@@ -49,19 +48,12 @@ class LinearModel:
 
 class LogisticRegression(LinearModel):
     
-    def sigmoid(self, s):
-        return 1/(1 + torch.exp(-s))
-    
-    
     def loss(self, X, y):
         """
         Should compute the empirical risk using the logistic loss function
         """
         s = self.score(X)
-        
-        # print(f"{s=}")
-        
-        sig_s = self.sigmoid(s)
+        sig_s = torch.sigmoid(s)
         y = y[:, None]
         
         little_loss = -y * torch.log(sig_s) - (1-y) * torch.log(1-sig_s)
@@ -76,7 +68,7 @@ class LogisticRegression(LinearModel):
         Should compute the gradient of the empirical risk
         """
         s = self.score(X)
-        sig_s = self.sigmoid(s)
+        sig_s = torch.sigmoid(s)
         
         little_grad = (sig_s - y)[:, None] * X
         
@@ -104,6 +96,9 @@ class GradientDescentOptimizer:
             self.model.w -= alpha*grad
         else:
             self.model.w += -1*alpha*grad + beta*(cur_w - self.model.prev_w)
+            # print(f"{-1*alpha*grad=}")
+            # print(f"{alpha*grad=}")
+
         
         # save value of previous w
         self.model.prev_w = cur_w
