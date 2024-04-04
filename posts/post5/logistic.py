@@ -24,7 +24,7 @@ class LinearModel:
             s torch.Tensor: vector of scores. s.size() = (n,)
         """
         if self.w is None: 
-            self.w = torch.rand((X.size()[1]))
+            self.w = (torch.rand((X.size()[1])) - 0.5) / X.size()[1]
             
         return X@self.w
 
@@ -64,7 +64,6 @@ class LogisticRegression(LinearModel):
         """
         s = self.score(X)
         sig_s = torch.sigmoid(s)
-        y = y[:, None]
         
         # compute small l loss
         little_loss = -y * torch.log(sig_s) - (1-y) * torch.log(1-sig_s)
