@@ -2,7 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/post1/homework1.html"
+      "/posts/goal_setting/goal-setting.html",
+      "/posts/post1/homework1.html",
+      "/posts/post2/hw2.html"
     ]
   }
 ]
