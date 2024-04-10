@@ -198,15 +198,25 @@ background-size: cover;
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
 <p>The Palmer Penguins data set was collected by Dr.&nbsp;Kristen Gorman and the Palmer Station, Anartica LTER, a member of the Long Term Ecological Research Network. It contains physiological measurements from three species of penguins and is widely used in data analysis. My goal with homework 1 is to identify three characteristics (two quantitative and one qualitative) and a model, which I then train, to identify penguin species with 100% testing accuracy.</p>
+<<<<<<< HEAD
 <div id="cell-3" class="cell" data-execution_count="3">
+=======
+<div id="cell-3" class="cell" data-execution_count="2">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>train_url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/PhilChodrow/ml-notes/main/data/palmer-penguins/train.csv"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> pd.read_csv(train_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<<<<<<< HEAD
 <div id="cell-4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
+=======
+<div id="cell-4" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div>
 
 
@@ -344,7 +354,11 @@ background-size: cover;
 <section id="explore" class="level2">
 <h2 class="anchored" data-anchor-id="explore">1. Explore:</h2>
 <p>To start my exploration into the penguin data, I first sough to understand the data by plotting it</p>
+<<<<<<< HEAD
 <div id="cell-6" class="cell" data-execution_count="5">
+=======
+<div id="cell-6" class="cell" data-execution_count="4">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># body mass vs specie with colors for gender</span></span>
@@ -368,7 +382,11 @@ background-size: cover;
 </div>
 </div>
 <p>This plot shows penguins as points colored by sex, with species as the x-axis and body mass (in grams) on the y-axis. This plot displays that on average, male penguins are larger than female penguins. It also shows a trend of Gentoo species of penguins larger than Chinstrap or Adelie penguins- who are relatively similar in size. This indicates that Body Mass (g) could potentially be a useful indicator in indicating species type. It is also important to note that the separation of gender allows us to make these assertions. Gento male penguins are generally larger than Adelie male penguins and the same follows with female penguins of these same two species. However, Gentoo female penguins are roughly the same size as Adelie male penguins. Therefore gender might be a useful tool in predicting penguin species.</p>
+<<<<<<< HEAD
 <div id="cell-8" class="cell" data-execution_count="6">
+=======
+<div id="cell-8" class="cell" data-execution_count="5">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>train, kind<span class="op">=</span><span class="st">"violin"</span>, x<span class="op">=</span><span class="st">"Delta 13 C (o/oo)"</span>, y<span class="op">=</span><span class="st">"Island"</span>, hue<span class="op">=</span><span class="st">"Species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -379,7 +397,11 @@ background-size: cover;
 </div>
 </div>
 <p>This plot shows the penguins of different species with different colors graphed on Delta 13 C (o/oo) and Island location. Delta 13(o/oo) is an interesting indicator as it is widely used as an indicator of diet especially in reference to vegetation. This therefore shows that there could be a large difference in diet between Chinstrap and the other two species of penguins. Adelie penguins are present in all three islands whereas Gentoo and Chinstrap penguins are isolated to one of the three. Therefore Island could be a helpful indicator of species type, but probably would not be indicative by itself.</p>
+<<<<<<< HEAD
 <div id="cell-10" class="cell" data-execution_count="7">
+=======
+<div id="cell-10" class="cell" data-execution_count="6">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> train.groupby([<span class="st">'Species'</span>, <span class="st">'Sex'</span>]).aggregate({<span class="st">'Culmen Length (mm)'</span> : [<span class="st">'min'</span>, <span class="st">'max'</span>,<span class="st">'mean'</span>]})</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -401,7 +423,11 @@ Gentoo    .                    44.5  44.5  44.500000
 <h2 class="anchored" data-anchor-id="model">2. Model</h2>
 <p>I then attempted to find three features of the data (one qualitative and two quantitative) and train a model on these features that achieves 100% testing accuracy.</p>
 <p>First I did data preparation to prepare the quantitative columns of the data</p>
+<<<<<<< HEAD
 <div id="cell-14" class="cell" data-execution_count="8">
+=======
+<div id="cell-14" class="cell" data-execution_count="7">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>le <span class="op">=</span> LabelEncoder()</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>le.fit(train[<span class="st">"Species"</span>])</span>
@@ -417,9 +443,15 @@ Gentoo    .                    44.5  44.5  44.500000
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>X_train, y_train <span class="op">=</span> prepare_data(train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<<<<<<< HEAD
 <div id="cell-15" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>X_train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
+=======
+<div id="cell-15" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>X_train.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div>
 
 
@@ -536,7 +568,11 @@ Gentoo    .                    44.5  44.5  44.500000
 </div>
 </div>
 <p>I completed an exhaustive iterative search to find the best markers. I used cross validation one each combination of one qualitative and two quantitative column with different models keeping track of the best score for each model. In terms of models I used a Logistic Regression, Decision Tree Classifier, SVC, and Random Forrest Classifier. For the Decision Tree Classifier and the Random Forrest Classifier I used grid search across the amount of parameters to identify the optimal maximum depth. For SVC I used grid search to find the optimal value for gamma across a wide array of numbers. With the best markers of each model, I also saved the columns of the best score.</p>
+<<<<<<< HEAD
 <div id="cell-17" class="cell" data-execution_count="10">
+=======
+<div id="cell-17" class="cell" data-execution_count="11">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
@@ -573,6 +609,7 @@ Gentoo    .                    44.5  44.5  44.500000
 <span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    LRScore <span class="op">=</span> cross_val_score(LR, X_train[cols], y_train, cv<span class="op">=</span><span class="dv">5</span>).mean()</span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<<<<<<< HEAD
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># keep track of best Logistic Regression Score</span></span>
 <span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> LRScore <span class="op">&gt;=</span> bestLRScore :</span>
 <span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>      bestLRScore <span class="op">=</span> LRScore</span>
@@ -633,17 +670,82 @@ Gentoo    .                    44.5  44.5  44.500000
 <pre><code>best LR ['Sex_FEMALE', 'Sex_MALE', 'Culmen Length (mm)', 'Culmen Depth (mm)'] : 0.9883107088989442
 best DTC ['Sex_FEMALE', 'Sex_MALE', 'Culmen Length (mm)', 'Culmen Depth (mm)'] : 0.9765460030165913
 best max depth: {'max_depth': 7}
+=======
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> LRScore <span class="op">&gt;=</span> bestLRScore :</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>      bestLRScore <span class="op">=</span> LRScore</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>      bestLRCols <span class="op">=</span> cols</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#DecisionTreeClassifier</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    param_grid <span class="op">=</span> { <span class="st">'max_depth'</span>: [ <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="va">None</span> ]}</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> DecisionTreeClassifier()</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    grid_search <span class="op">=</span> GridSearchCV(tree, param_grid, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    grid_search.fit(X_train[cols], y_train)</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    DTCScore  <span class="op">=</span> grid_search.best_score_</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(DTCScore <span class="op">&gt;</span> bestDTCScore):</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>      bestDTCScore <span class="op">=</span> DTCScore</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>      bestDTCCols <span class="op">=</span> cols</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>      bestDTCDepth <span class="op">=</span> grid_search.best_params_</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Random Forrest Classifier    </span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    forrest <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    grid_search <span class="op">=</span> GridSearchCV(forrest, param_grid, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>    grid_search.fit(X_train[cols], y_train)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>    RFCScore  <span class="op">=</span> grid_search.best_score_</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(RFCScore <span class="op">&gt;</span> bestRFCScore):</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>      bestRFCScore <span class="op">=</span> RFCScore</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>      bestRFCCols <span class="op">=</span> cols</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>      bestRFCDepth <span class="op">=</span> grid_search.best_params_</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>    <span class="co">#SVC</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>    SVM <span class="op">=</span> SVC()</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> {<span class="st">'gamma'</span>: <span class="fl">10.0</span> <span class="op">**</span> np.arange(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>) }</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>    grid_search <span class="op">=</span> GridSearchCV(SVM, g, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>    grid_search.fit(X_train[cols], y_train)</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>    SVMScore  <span class="op">=</span> grid_search.best_score_   </span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(SVMScore <span class="op">&gt;</span> bestSVMScore):</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>      bestSVMScore <span class="op">=</span> SVMScore</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>      bestSVMCols <span class="op">=</span> cols</span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"best LR"</span>,bestLRCols, <span class="st">":"</span>, bestLRScore)</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"best DTC"</span>,bestDTCCols, <span class="st">":"</span>, bestDTCScore)</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"best max depth:"</span>, bestDTCDepth)</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"best RFC"</span>, bestRFCCols, <span class="st">":"</span>, bestRFCScore)</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"best max depth:"</span>, bestRFCDepth)</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"best SVM"</span>, bestSVMCols, <span class="st">":"</span>, bestSVMScore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>best LR ['Sex_FEMALE', 'Sex_MALE', 'Culmen Length (mm)', 'Culmen Depth (mm)'] : 0.9883107088989442
+best DTC ['Island_Biscoe', 'Island_Dream', 'Island_Torgersen', 'Culmen Length (mm)', 'Flipper Length (mm)'] : 0.9804675716440421
+best max depth: {'max_depth': 5}
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 best RFC ['Sex_FEMALE', 'Sex_MALE', 'Culmen Length (mm)', 'Flipper Length (mm)'] : 0.9844645550527904
 best max depth: {'max_depth': 5}
 best SVM ['Sex_FEMALE', 'Sex_MALE', 'Culmen Length (mm)', 'Culmen Depth (mm)'] : 0.9805429864253394</code></pre>
 </div>
 </div>
+<<<<<<< HEAD
 <p>From my iterative search through the features and the different models I was able to find that the best score was Logistic Regression with Culmen Length (mm), Culmen Depth (mm), and Sex. This model with these features had a 0.9883107088989442% classification rate. This made sense as I noted in my data exploration that sex was an important distinction to make when comparing different features to classify teh species.</p>
 </section>
 <section id="test-the-models-on-the-test-data" class="level2">
 <h2 class="anchored" data-anchor-id="test-the-models-on-the-test-data">3. Test the models on the test data</h2>
 <p>Next I prepared the test data by shorting my Species column and identifying selected columns of the best fitting models- Culmen Length (mm), Culmen Depth (mm), and Sex for Logistic Regression. On my test data I achieved 100% testing accuracy.</p>
 <div id="cell-20" class="cell" data-execution_count="11">
+=======
+</section>
+<section id="test-the-models-on-the-test-data." class="level2">
+<h2 class="anchored" data-anchor-id="test-the-models-on-the-test-data.">3. Test the models on the test data.</h2>
+<p>Next I prepared the test data by shorting my Species column and identifying selected columns of the best fitting models- Culmen Length (mm), Culmen Depth (mm), and Sex for Logistic Regression. On my test data I achieved 100% testing accuracy.</p>
+<div id="cell-19" class="cell" data-execution_count="12">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>test_url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/PhilChodrow/ml-notes/main/data/palmer-penguins/test.csv"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> pd.read_csv(test_url)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -679,7 +781,11 @@ Please also refer to the documentation for alternative solver options:
 <section id="plotting-decision-regions" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-decision-regions">4. Plotting Decision Regions</h2>
 <p>I visualized how my model worked on the training and test data by plotting the data and displaying the decision regions of my model.</p>
+<<<<<<< HEAD
 <div id="cell-22" class="cell" data-execution_count="12">
+=======
+<div id="cell-21" class="cell" data-execution_count="13">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -744,7 +850,11 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div id="cell-23" class="cell" data-execution_count="13">
+=======
+<div id="cell-22" class="cell" data-execution_count="14">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plot_regions(LR, X_test_selected, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -758,7 +868,11 @@ Please also refer to the documentation for alternative solver options:
 <section id="confusion-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="confusion-matrix">5. Confusion Matrix</h2>
 <p>Finally, to visualize the successful identification of my model with my three chosen characteristics I used a confusion matrix on the testing data.</p>
+<<<<<<< HEAD
 <div id="cell-25" class="cell" data-execution_count="17">
+=======
+<div id="cell-24" class="cell" data-execution_count="16">
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> LR.predict(X_test_selected)</span>
@@ -779,6 +893,7 @@ There were 0 Gentoo penguin(s) who were classified as Chinstrap.
 There were 26 Gentoo penguin(s) who were classified as Gentoo.</code></pre>
 </div>
 </div>
+<<<<<<< HEAD
 <div id="cell-26" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -794,6 +909,8 @@ There were 26 Gentoo penguin(s) who were classified as Gentoo.</code></pre>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <p>This blog post taught me many things. Firstly, it allowed me to gain practice exploring and understanding data. I was able to explore the Palmer Penguin data set by creating tables and graphs. Then I was able to use the knowledge gained by the exploration to train my own classifier. I was able to become familiar with various different machine learning models through this assignment: Logistic Regression, Decision Tree Classifier, Random Forest Classifier, and Support Vector Machines. Through this process, I learned about grid search and how to find optimal parameters. I then got practice training a Logistic Regression with Culmen Length (mm), Culmen Depth (mm), and Sex and finally testing it on our test data to get a 100% accuracy rate. Not only did I become more familiar with this particular data set, but I was able to learn skills in how to analyze data and build and test Machine Learning Models.</p>
+=======
+>>>>>>> f05d8ac245a90d3bb746915d8059a575d600d8bf
 
 
 </section>
