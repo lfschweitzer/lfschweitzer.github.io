@@ -122,7 +122,7 @@ class GradientDescentOptimizer:
         loss = self.model.loss(X, y)
         grad = self.model.grad(X, y)
         
-        cur_w = self.model.w
+        cur_w = self.model.w.clone()
         
         # if it is the first update
         if self.model.prev_w == None:
