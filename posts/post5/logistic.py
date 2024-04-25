@@ -64,6 +64,8 @@ class LogisticRegression(LinearModel):
         """
         s = self.score(X)
         sig_s = torch.sigmoid(s)
+        # print(f"{sig_s=}")
+        # print(f"{y=}")
         
         # compute small l loss
         little_loss = -y * torch.log(sig_s) - (1-y) * torch.log(1-sig_s)
