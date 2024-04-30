@@ -231,7 +231,12 @@ window.Quarto = {
 <h1><u> Newton’s Method for Logistic Regression </u></h1>
 <p><img src="newton.jpg" class="img-fluid"></p>
 <p>This blog post includes implementing Newton’s Method for Logistic Regression and performing 3 experiments.</p>
-<p>These three experiments include: 1. When alpha is chosen appropriately, Newton’s method converges to the correct choice of w. 2. Under at least some circumstances, Newton’s method can converge much faster than standard gradient descent, in the sense of decreasing the empirical risk. 3. If alpha is too large, Newton’s method fails to converge.</p>
+<p>These three experiments include:</p>
+<ol type="1">
+<li><p>When alpha is chosen appropriately, Newton’s method converges to the correct choice of w.</p></li>
+<li><p>Under at least some circumstances, Newton’s method can converge much faster than standard gradient descent, in the sense of decreasing the empirical risk.</p></li>
+<li><p>If alpha is too large, Newton’s method fails to converge.</p></li>
+</ol>
 <p>Then finally, I was able to analyze the convergence time for standard gradient descent as opposed to newton’s method. I was able to conclude that, especially when p becomes very large, Newton’s method takes significantly more time. Though my these three experiments and my analysis I was able to see how Newton’s method can be a helpful method in minimizing empirical risk, but only under specific circumstances: when p and alpha are not too large.</p>
 <section id="data-generation" class="level2">
 <h2 class="anchored" data-anchor-id="data-generation">Data Generation</h2>
