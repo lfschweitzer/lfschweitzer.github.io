@@ -475,29 +475,30 @@ window.Quarto = {
 <li>Inverting pxp –&gt; <span class="math inline">\(k_1p^\gamma\)</span> where <span class="math inline">\(2 \leq \gamma &lt;3\)</span></li>
 <li>Multiplying by H –&gt; <span class="math inline">\(k_2p^{2}\)</span></li>
 </ul>
-<p>To make a singular step for Newton’s Method:</p>
+<p>To make a singular step for <b> Newton’s Method: </b></p>
 <ol type="1">
 <li><p>Compute loss: c</p></li>
 <li><p>For <span class="math inline">\(t_\mathrm{nm}\)</span> steps:</p>
 <ol type="a">
-<li><p>Compute grad: 2c</p></li>
-<li><p>Compute H : pc</p></li>
+<li><p>Compute grad: <span class="math inline">\(2c\)</span></p></li>
+<li><p>Compute H : <span class="math inline">\(pc\)</span></p></li>
 <li><p>Invert H: <span class="math inline">\(k_1p^\gamma\)</span></p></li>
 <li><p>Multiply by H: <span class="math inline">\(k_2p^{2}\)</span></p></li>
 </ol></li>
 </ol>
-<p>Total time: O(c + <span class="math inline">\(t_\mathrm{nm}\)</span> * (2c + pc + <span class="math inline">\(k_1p^\gamma\)</span> + <span class="math inline">\(k_2p^{2}\)</span>))</p>
-<p>To make a singular step for Standard Gradient Descent:</p>
+<p>Total time: <span class="math display">\[O(c + t_\mathrm{nm} * (2c + pc + k_1p^\gamma + k_2p^{2}))\]</span></p>
+<p>To make a singular step for <b> Standard Gradient Descent: </b></p>
 <ol type="1">
-<li><p>Compute loss: c</p></li>
+<li><p>Compute loss: <span class="math inline">\(c\)</span></p></li>
 <li><p>For <span class="math inline">\(t_\mathrm{gd}\)</span> steps:</p>
 <ol type="a">
-<li>Compute grad: 2c</li>
+<li>Compute grad: <span class="math inline">\(2c\)</span></li>
 </ol></li>
 </ol>
-<p>Total time: O(c + <span class="math inline">\(t_\mathrm{gd}\)</span> * 2c)</p>
-<p>If O(GD) = c + <span class="math inline">\(t_\mathrm{gd}\)</span> * 2c, and O(NM) = c + <span class="math inline">\(t_\mathrm{nm}\)</span> * (2c + pc + <span class="math inline">\(k_1p^\gamma\)</span> + <span class="math inline">\(k_2p^{2}\)</span>), then <span class="math inline">\(\frac{t_\mathrm{nm}}{t_\mathrm{gd}} = \frac{2c + pc + k_1p^\gamma + k_2p^{2}}{2c}\)</span>.</p>
-<p>Therefore, <span class="math inline">\(t_\mathrm{nm}\)</span> is more computationally expensive than <span class="math inline">\(t_\mathrm{gd}\)</span> by <span class="math inline">\(1 + \frac{p}{2} + \frac{k_1p^\gamma}{2c} +  \frac{k_2p^{2}}{2c}\)</span>. The growth is determined by <span class="math inline">\(k_1p^\gamma\)</span> + <span class="math inline">\(k_2p^{2}\)</span>. Therefore, as p gets much larger, <span class="math inline">\(t_\mathrm{nm}\)</span> increases exponentially. <span class="math inline">\(t_\mathrm{sg}\)</span> does not depend on p and therefore would be smaller than <span class="math inline">\(t_\mathrm{nm}\)</span>.</p>
+<p>Total time: <span class="math display">\[O(c + t_\mathrm{gd} * 2c)\]</span></p>
+<p>If <span class="math display">\[O(GD) = c + t_\mathrm{gd} * 2c\]</span> and <span class="math display">\[O(NM) = c + t_\mathrm{nm} * (2c + pc + k_1p^\gamma + k_2p^{2})\]</span> then <span class="math display">\[\frac{t_\mathrm{nm}}{t_\mathrm{gd}} = \frac{2c + pc + k_1p^\gamma + k_2p^{2}}{2c}\]</span></p>
+<p>This critical ratio determines the relative computational cost between Newton’s method and Standard Gradient Descent as <span class="math inline">\(p\)</span> increases. It can be simplified to <span class="math display">\[1 + \frac{p}{2} + \frac{k_1p^\gamma}{2c} +  \frac{k_2p^{2}}{2c}\]</span></p>
+<p>Therefore as <span class="math inline">\(p\)</span> shows larger, the critical ratio, and thereby the relative computational expense of Newton’s method and Standard Gradient Descent grows polynomially, determined by <span class="math display">\[k_1p^\gamma + k_2p^{2}\]</span> In contrast, the computational cost of Standard Gradient does not depend on <span class="math inline">\(p\)</span>.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
