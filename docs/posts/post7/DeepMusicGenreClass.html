@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Awesome CSCI 0451 Blog - Deep Music Genre Classification</title>
+<title>My Awesome CSCI 0451 Blog -  Deep Music Genre Classification </title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Deep Music Genre Classification</h1>
+      <h1 class="title"><u> Deep Music Genre Classification </u></h1>
                       </div>
   </div>
     
@@ -193,12 +193,14 @@ background-size: cover;
 
 
 <section id="deep-music-genre-classification" class="level1">
-<h1>Deep Music Genre Classification</h1>
+<h1><u> Deep Music Genre Classification </u></h1>
 <p><img src="music.jpg" class="img-fluid"></p>
 <section id="contribution-statement" class="level2">
 <h2 class="anchored" data-anchor-id="contribution-statement">Contribution Statement</h2>
 <p>In this blog post I collaborated with Liz Rightmire.</p>
-<p>##Introduction</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>For this blog post I had this goal: classify songs into different genres</p>
 <p>To accomplish this task I created three neural networks with Torch and trained them. The first neural network classifies the songs by lyrics only, the second neural netowork classifies the songs by engineering features, and the final uses both engineering features and lyrics to classify songs into genres. I then reflect on these results. After training these models I analyzed the word embeddings learned through this model, specifically focused on gendered words and word embeddings.</p>
 <p>The base classification rate is 24.8%. After training, all the models grew in accuracy with the first model having a 35%, the second has about 32%, and the third has 30% accuracy rate on the test data. I also found through analyzing the word embeddings that word embeddings can encode bias from the data the model is trained on. Therefore I learned not only more about how to train neural networks but also how to analyze their impacts and fairness.</p>
